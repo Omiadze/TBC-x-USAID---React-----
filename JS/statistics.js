@@ -1,14 +1,14 @@
 const statistics = [
   {
-    amount: 94750,
+    amount: "94 750",
     title: "Users",
   },
   {
-    amount: "150+",
+    amount: "150 +",
     title: "Events",
   },
   {
-    amount: "130+",
+    amount: "130 +",
     title: "Offers",
   },
 ];

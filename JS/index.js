@@ -28,6 +28,7 @@ products.map((item) => {
   img.src = item.img;
   img.alt = item.title;
   imgContainer.appendChild(img);
+  img.className = "big-img";
 
   //   // Create the overlay
   const overlay = document.createElement("div");
@@ -59,7 +60,7 @@ statistics.map((stat) => {
   const div = document.createElement("div");
   div.className = "stat";
 
-  const amount = document.createElement("p");
+  const amount = document.createElement("h1");
   amount.textContent = stat.amount;
   div.appendChild(amount);
 
@@ -91,6 +92,7 @@ offers.map((offer) => {
   img.className = "offer-img";
   img.src = offer.img;
   img.alt = offer.title;
+
   imgContainer.appendChild(img);
 
   // logos damateba
@@ -138,6 +140,7 @@ products.map((item) => {
   const img = document.createElement("img");
   img.src = item.img;
   img.alt = item.title;
+  img.className = "big-img";
   imgContainer.appendChild(img);
   div.appendChild(imgContainer);
   products.appendChild(div);
@@ -151,6 +154,7 @@ awards.map((award) => {
   const logo = document.createElement("img");
   logo.src = award.logo;
   logo.alt = award.title;
+  logo.className = "big-img";
   const title = document.createElement("h3");
   title.textContent = award.title;
   const category = document.createElement("p");
