@@ -132,7 +132,7 @@
       <div class="main-container">
         <p class="home-page">Home page</p>
         <div class="banner">
-          <div class="banner-img">
+          <div class="banner-img-wrapper">
             <img src="./src/Img/ze324k50.yq4Become-2.webp" alt="banner" />
           </div>
           <div id="banner-content" class="banner-content">
@@ -148,15 +148,34 @@
             non-banking advantages.
           </h1>
         </div>
-        <h1>Select a Package</h1>
-        <div id="package-container"></div>
-        <h1>Statistics</h1>
+        <h1 class="package-h1">Select a Package</h1>
+        <div id="package-container" class="package-container">
+          
+        </div>
+        
         <div id="statistics-container" class="statistics-container"></div>
-        <div id="offers-container">
-          <div class="all-offers">
-            <h2>Offers</h2>
-            <p>ALL Offers</p>
+        <div class="all-offers">
+          <h2>Offers</h2>
+          <p>ALL Offers</p>
+        </div>
+        
+          <div class="offer-slider-wrapper"> 
+            <div id="offers-container" class="offers-container">
+            </div>
+            <div class="slider-scrollbar">
+              <div class="scrollbar-track">
+                <div class="scrollbar-thumb"></div>
+              </div>
+              <div class="scrollbar-arrows">
+                <svg class="arrow prev-arrow" id="prev-arrow" data-v-79b32762="" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path data-v-79b32762="" d="M7.7513 3.58331L1.91797 9.41665C1.58464 9.74998 1.58464 10.25 1.91797 10.5833L7.7513 16.4166C8.08464 16.75 8.58464 16.75 8.91797 16.4166C9.2513 16.0833 9.2513 15.5833 8.91797 15.25L4.5013 10.8333H17.5013C18.0013 10.8333 18.3346 10.5 18.3346 9.99998C18.3346 9.49998 18.0013 9.16665 17.5013 9.16665H4.5013L8.91797 4.74998C9.08464 4.58331 9.16797 4.41665 9.16797 4.16665C9.16797 3.91665 9.08464 3.74998 8.91797 3.58331C8.58464 3.24998 8.08464 3.24998 7.7513 3.58331Z"></path></svg>
+                <svg class="arrow next-arrow" id="next-arrow" data-v-79b32762="" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path data-v-79b32762="" d="M12.2513 3.58331L18.0846 9.41665C18.418 9.74998 18.418 10.25 18.0846 10.5833L12.2513 16.4166C11.918 16.75 11.418 16.75 11.0846 16.4166C10.7513 16.0833 10.7513 15.5833 11.0846 15.25L15.5013 10.8333H2.5013C2.0013 10.8333 1.66797 10.5 1.66797 9.99998C1.66797 9.49998 2.0013 9.16665 2.5013 9.16665H15.5013L11.0846 4.74998C10.918 4.58331 10.8346 4.41665 10.8346 4.16665C10.8346 3.91665 10.918 3.74998 11.0846 3.58331C11.418 3.24998 11.918 3.24998 12.2513 3.58331Z"></path></svg>
+              </div>
+            </div>
           </div>
+       
+        
+        
+          
         </div>
       </div>
       <div class="main-container-second-part">
@@ -196,11 +215,11 @@
       </div>
       <div class="main-container-third-part">
         <section id="products"></section>
-        <section id="banner2">
-          <div>
+        <section id="banner2" class="banner2">
+          <div class="banner-img-wrapper">
             <img class="banner2-img" src="./src/Img/banner2.png" alt="privite banker" />
           </div>
-          <div id="banner2-content">
+          <div id="banner2-content" class="banner2-content">
             <h3>Privite Banker</h3>
             <p>Your trusted partner in financial advice and operations</p>
           </div>

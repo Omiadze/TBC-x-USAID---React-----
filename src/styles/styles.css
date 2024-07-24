@@ -10,8 +10,7 @@
   --light-text-color: #555f62;
   --light-grey: #f9fafa;
 }
-.big-img,
-.banner2-img {
+.big-img {
   width: 200px;
 }
 body {
@@ -24,8 +23,18 @@ header,
 .main-container-second-part,
 .main-container-third-part,
 footer {
-  padding-left: 15%;
-  padding-right: 15%;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+@media only screen and (min-width: 1200px) {
+  header,
+  .main-container,
+  .main-container-second-part,
+  .main-container-third-part,
+  footer {
+    padding-left: 20%;
+    padding-right: 20%;
+  }
 }
 
 /* Styles for the header and navbar sections */
@@ -116,29 +125,38 @@ nav {
   padding: 20px;
 }
 /* first banner on the page */
-.banner {
+.banner,
+.banner2 {
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 450px;
+  height: 102%;
   border-radius: 10px;
 }
-.banner-content {
+.banner-content,
+.banner2-content {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
-  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
+  height: 98.5%;
+
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+
   gap: 20px;
   padding-left: 11%;
 }
+.banner-img-wraper,
+.banner2 img,
 .banner img {
+  object-fit: inherit;
   width: 100%;
+  height: 102%;
+  background-color: #000;
 }
 
 .blue-btn {
@@ -154,28 +172,6 @@ nav {
 .main-title {
   font-size: x-large;
   padding: 4em 0;
-}
-.offer-img-container {
-  position: relative;
-  width: 300px; /* Set the width of the container */
-  height: 200px; /* Set the height of the container */
-}
-
-.offer-img {
-  width: 100%; /* Make the image fill the width of the container */
-  height: 100%; /* Make the image fill the height of the container */
-  object-fit: cover; /* Stretch the image to fit the container */
-}
-
-.offers-logo {
-  position: absolute;
-  right: 0px;
-  top: 15px;
-  background-color: white;
-  width: 70px;
-  height: 50px;
-  z-index: 10;
-  border-radius: 10px 0px 0px 10px;
 }
 
 /* footer section here */
@@ -252,7 +248,7 @@ footer a:hover {
   justify-content: space-between;
   gap: 30px;
   margin: 0 auto;
-  margin: 5% 0;
+  margin: 10% 0;
 }
 .stat {
   display: flex;
@@ -295,4 +291,184 @@ footer a:hover {
 .digital-bank-btn {
   padding: 10px 30px;
   margin-right: 20px;
+}
+/* packages */
+.package-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  width: 100%;
+  row-gap: 5%;
+  column-gap: 2%;
+}
+.package-div-1,
+.package-div-2,
+.package-div-3 {
+  min-width: 540px;
+}
+.package-div-1 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  height: 280px;
+}
+.package-div-3 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+.package-div-2 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  height: 280px;
+}
+/* .package-div-1 img,
+.package-div-2 img,
+.package-div-3 img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  filter: blur(0.2px);
+} */
+.package-div-3 img {
+  width: 600px;
+  /* height: 100%; */
+}
+.package-div-1 img {
+  width: 600px;
+  /* height: 100%; */
+}
+.package-div-2 img {
+  width: 600px;
+  /* height: 100%; */
+}
+.package-img-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.package-img-container img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  filter: blur(0.2px);
+  border-radius: 10px;
+}
+.overlay {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 10%;
+  margin-left: 10%;
+  /* left: 20%; */
+  color: white;
+  width: 200px;
+  font-weight: bold;
+}
+.read-more {
+  display: flex;
+  gap: 2%;
+  margin-top: 10%;
+}
+.read-more p {
+  text-decoration: underline;
+  font-size: smaller;
+}
+.package-h1 {
+  margin-bottom: 5%;
+}
+
+/* offerebi */
+.offers-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 3%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-bottom: 20px;
+}
+.offers-container::-webkit-scrollbar {
+  display: none;
+}
+.offer-slider-wrapper {
+}
+.offer-div {
+  border: 1px solid var(--light-text-color);
+  border-radius: 10px;
+}
+.offer-img-container {
+  position: relative;
+  width: 350px;
+  height: 200px;
+}
+
+.offer-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.offers-logo {
+  position: absolute;
+  right: 0px;
+  top: 15px;
+  background-color: white;
+  width: 70px;
+  height: 50px;
+  z-index: 10;
+  border-radius: 10px 0px 0px 10px;
+}
+/* scrollbar slider */
+.slider-scrollbar {
+  height: 20px;
+  width: 98%;
+  /* background-color: white;
+  border: 1px solid black; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.scrollbar-track {
+  position: relative;
+  height: 4px;
+  width: 90%;
+  background-color: #ccc;
+  border-radius: 4px;
+}
+.scrollbar-thumb {
+  position: absolute;
+  height: 4px;
+  width: 50%;
+  background-color: var(--blue);
+  border-radius: inherit;
+  cursor: grab;
+}
+.scrollbar-thumb::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -10px;
+  bottom: -10px;
+}
+.slider-scrollbar:hover .scrollbar-track {
+  height: 4px;
+}
+.slider-scrollbar .scrollbar-thumb:active {
+  cursor: grabbing;
+  height: 8px;
+  top: -2px;
+}
+.scrollbar-arrows {
+  display: flex;
+  gap: 20%;
+}
+.scrollbar-arrows svg:hover {
+  cursor: pointer;
+  color: var(--blue);
 }
