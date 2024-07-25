@@ -9,6 +9,7 @@
   --blue: #182cc0;
   --light-text-color: #555f62;
   --light-grey: #f9fafa;
+  --border-light-grey: #e7e7e7;
 }
 .big-img {
   width: 200px;
@@ -274,6 +275,7 @@ footer a:hover {
   align-items: center;
   background-color: white;
   width: 100%;
+  margin-bottom: 10%;
 }
 .digital-bank-content {
   flex: 1;
@@ -382,30 +384,67 @@ footer a:hover {
 }
 
 /* offerebi */
-.offers-container {
+.offers-container,
+.awards-container,
+.products-container {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+
   gap: 3%;
   overflow-x: auto;
   scrollbar-width: none;
   margin-bottom: 20px;
+  padding-right: 1%;
 }
-.offers-container::-webkit-scrollbar {
+.offers-container {
+  grid-template-columns: repeat(6, 1fr);
+}
+.awards-container {
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 10%;
+}
+.products-container {
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 10%;
+}
+
+.offers-container::-webkit-scrollbar,
+.awards-container::-webkit-scrollbar {
   display: none;
 }
 .offer-slider-wrapper {
 }
-.offer-div {
-  border: 1px solid var(--light-text-color);
+.offer-div,
+.products-div {
+  border: 0.1px solid var(--border-light-grey);
+  border-radius: 10px;
+  width: 350px;
+}
+.awards-div {
+  width: 350px;
+  height: 250px;
+  padding: 10%;
+  background-color: white;
   border-radius: 10px;
 }
-.offer-img-container {
+
+.awards-content-div {
+  padding-top: 15%;
+}
+.awards-content-div h3 {
+  margin-bottom: 10%;
+}
+.awards-logo {
+  width: 35%;
+}
+.offer-img-container,
+.products-img-container {
   position: relative;
   width: 350px;
   height: 200px;
 }
 
-.offer-img {
+.offer-img,
+.products-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -423,6 +462,21 @@ footer a:hover {
   z-index: 10;
   border-radius: 10px 0px 0px 10px;
 }
+.offer-content-div,
+.products-content-div {
+  padding: 5% 10%;
+}
+.offer-content-div p,
+.products-content-div p {
+  font-size: smaller;
+  color: var(--light-text-color);
+  margin-bottom: 5%;
+}
+.products-content-div h2 {
+  font-size: small;
+  margin-bottom: 5%;
+}
+
 /* scrollbar slider */
 .slider-scrollbar {
   height: 20px;
@@ -432,17 +486,18 @@ footer a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 10%;
 }
 .scrollbar-track {
   position: relative;
-  height: 4px;
+  height: 2px;
   width: 90%;
   background-color: #ccc;
   border-radius: 4px;
 }
 .scrollbar-thumb {
   position: absolute;
-  height: 4px;
+  height: 2px;
   width: 50%;
   background-color: var(--blue);
   border-radius: inherit;
@@ -456,13 +511,9 @@ footer a:hover {
   top: -10px;
   bottom: -10px;
 }
-.slider-scrollbar:hover .scrollbar-track {
-  height: 4px;
-}
+
 .slider-scrollbar .scrollbar-thumb:active {
   cursor: grabbing;
-  height: 8px;
-  top: -2px;
 }
 .scrollbar-arrows {
   display: flex;
@@ -472,3 +523,4 @@ footer a:hover {
   cursor: pointer;
   color: var(--blue);
 }
+/* awardebi */

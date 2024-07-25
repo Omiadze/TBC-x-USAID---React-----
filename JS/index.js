@@ -132,24 +132,28 @@ products.map((item) => {
   const products = document.getElementById("products");
   const div = document.createElement("div");
   div.className = "products-div";
-
-  const title = document.createElement("h2");
-  title.textContent = item.title;
-  div.appendChild(title);
-
-  const text = document.createElement("p");
-  text.textContent = item.text;
-  div.appendChild(text);
-
   const imgContainer = document.createElement("div");
   imgContainer.className = "products-img-container";
 
   const img = document.createElement("img");
   img.src = item.img;
   img.alt = item.title;
-  img.className = "big-img";
+  img.className = "products-img";
   imgContainer.appendChild(img);
   div.appendChild(imgContainer);
+
+  const productsContentDiv = document.createElement("div");
+  productsContentDiv.className = "products-content-div";
+
+  const title = document.createElement("h2");
+  title.textContent = item.title;
+  productsContentDiv.appendChild(title);
+
+  const text = document.createElement("p");
+  text.textContent = item.text;
+  productsContentDiv.appendChild(text);
+
+  div.appendChild(productsContentDiv);
   products.appendChild(div);
 });
 
@@ -161,25 +165,32 @@ awards.map((award) => {
   const logo = document.createElement("img");
   logo.src = award.logo;
   logo.alt = award.title;
-  logo.className = "big-img";
+  logo.className = "awards-logo";
+  const awardsContentDiv = document.createElement("div");
+  awardsContentDiv.classList = "awards-content-div";
   const title = document.createElement("h3");
   title.textContent = award.title;
   const category = document.createElement("p");
   category.textContent = award.category;
   div.appendChild(logo);
-  div.appendChild(title);
-  div.appendChild(category);
+  awardsContentDiv.appendChild(title);
+  awardsContentDiv.appendChild(category);
+  div.appendChild(awardsContentDiv);
   awardsContainer.appendChild(div);
 });
 
 // slider
-const initSlider = () => {
-  const offersContainer = document.querySelector(".offers-container");
-  const sliderBtns = document.querySelectorAll(".arrow");
-  const sliderScrollbar = document.querySelector(".slider-scrollbar");
+const initSlider = (containerSelector, scrollbarSelector, arrowsSelector) => {
+  const sliderContainer = document.querySelector(containerSelector);
+  const sliderScrollbar = document.querySelector(scrollbarSelector);
   const sliderScrollThumb = sliderScrollbar.querySelector(".scrollbar-thumb");
-  const maxScrollLeft =
-    offersContainer.scrollWidth - offersContainer.clientWidth;
+  const scrollbarTrack = sliderScrollbar.querySelector(".scrollbar-track");
+  const sliderBtns = document.querySelectorAll(arrowsSelector + " .arrow");
+
+  const updateMaxScrollLeft = () =>
+    sliderContainer.scrollWidth - sliderContainer.clientWidth;
+  let maxScrollLeft = updateMaxScrollLeft();
+
   // mouse down
   sliderScrollThumb.addEventListener("mousedown", (e) => {
     const startX = e.clientX;
@@ -189,7 +200,7 @@ const initSlider = () => {
       const deltaX = e.clientX - startX;
       const newsliderScrollThumb = thumbPosition + deltaX;
       const maxThumbPosition =
-        sliderScrollbar.getBoundingClientRect().width -
+        scrollbarTrack.getBoundingClientRect().width -
         sliderScrollThumb.offsetWidth;
 
       const boundedPosition = Math.max(
@@ -200,7 +211,7 @@ const initSlider = () => {
         (boundedPosition / maxThumbPosition) * maxScrollLeft;
 
       sliderScrollThumb.style.left = `${boundedPosition}px`;
-      offersContainer.scrollLeft = scrollPosition;
+      sliderContainer.scrollLeft = scrollPosition;
     };
 
     const handleMouseUp = () => {
@@ -214,28 +225,39 @@ const initSlider = () => {
   sliderBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       const direction = btn.id === "prev-arrow" ? -1 : 1;
-      const scrollAmount = offersContainer.clientWidth * direction;
-      offersContainer.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      const scrollAmount = sliderContainer.clientWidth * direction;
+      sliderContainer.scrollBy({ left: scrollAmount, behavior: "smooth" });
     });
   });
+
   const handleSlideBtn = () => {
     sliderBtns[0].style.display =
-      offersContainer.scrollLeft <= 0 ? "hidden" : "block";
+      sliderContainer.scrollLeft <= 0 ? "hidden" : "block";
     sliderBtns[1].style.display =
-      offersContainer.scrollLeft >= maxScrollLeft ? "hidden" : "block";
+      sliderContainer.scrollLeft >= maxScrollLeft ? "hidden" : "block";
   };
 
   const updateScrollThumbPosition = () => {
-    const scrollPosition = offersContainer.scrollLeft;
+    const scrollPosition = sliderContainer.scrollLeft;
     const thumbPosition =
       (scrollPosition / maxScrollLeft) *
-      (sliderScrollbar.clientWidth - sliderScrollThumb.offsetWidth);
+      (scrollbarTrack.clientWidth - sliderScrollThumb.offsetWidth);
     sliderScrollThumb.style.left = `${thumbPosition}px`;
   };
-  offersContainer.addEventListener("scroll", () => {
+
+  sliderContainer.addEventListener("scroll", () => {
     handleSlideBtn();
+    updateScrollThumbPosition();
+  });
+
+  window.addEventListener("resize", () => {
+    maxScrollLeft = updateMaxScrollLeft();
     updateScrollThumbPosition();
   });
 };
 
-window.addEventListener("load", initSlider);
+// Initialize sliders with unique selectors
+window.addEventListener("load", () => {
+  initSlider("#offers-container", "#offers-scrollbar", "#offers-arrows");
+  initSlider("#awards-container", "#awards-scrollbar", "#awards-arrows");
+});
