@@ -8,14 +8,13 @@
   --light-blue: #3295ce;
   --blue: #182cc0;
   --light-text-color: #555f62;
-  --light-grey: #f9fafa;
+  --too-light-grey: #f9fafa;
+  --light-grey: #d7dddd;
   --border-light-grey: #e7e7e7;
 }
-.big-img {
-  width: 200px;
-}
+
 body {
-  background-color: var(--light-grey);
+  background-color: var(--too-light-grey);
 }
 
 /* General styles for header, main container, and footer */
@@ -38,10 +37,56 @@ footer {
   }
 }
 
+hr {
+  margin: 0 -40%; /* Negative margin to counteract the padding */
+  /* width: calc(100% + 40%); Add padding width to the hr */
+}
+/* drop-down */
+.drop-down-menu {
+  background-color: white;
+  display: flex;
+  padding: 3% 0;
+  z-index: 100;
+  display: none;
+}
+.drop-down-logo div {
+  display: flex;
+  color: var(--blue);
+  align-items: center;
+  gap: 2%;
+  margin-top: 5%;
+}
+
+.products-ul,
+.offers-ul,
+.concept-ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: var(--light-text-color);
+  width: 120px;
+}
+.products-ul li:hover,
+.offers-ul li:hover,
+.concept-ul li:hover {
+  color: var(--blue);
+  cursor: pointer;
+}
+.offers-ul {
+  margin-left: 90%;
+}
+.products-ul {
+  margin-left: 8%;
+}
+.concept-ul {
+  margin-left: 160%;
+}
+
 /* Styles for the header and navbar sections */
 header {
   background-color: white;
-  border-bottom: 1px solid #ddd;
+
   position: fixed;
   top: 0;
   width: 100%;
@@ -52,7 +97,18 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  /* padding: 20px 0; */
+  height: 60px;
+}
+.main-logo {
+  display: flex;
+  align-items: center;
+  color: var(--light-text-color);
+}
+.nav-first-section svg {
+  border-right: 2px solid var(--light-grey);
+  padding-right: 5%;
+  margin-right: 5%;
 }
 
 .nav-first-section,
@@ -66,21 +122,27 @@ nav {
 .nav-second-section {
   align-items: center;
   gap: 6%;
+  height: 100%;
 }
 
 .nav-links {
   display: flex;
+  align-items: center;
   list-style: none;
   margin: 0;
   padding: 0;
-  width: 350px;
+  width: 380px;
+  height: 100%;
 }
 
-.nav-links a {
-  margin: 0 15px;
+.nav-links div {
+  display: flex;
+  align-items: center;
+  margin: auto 15px;
+  height: 100%;
 }
 
-.nav-links a {
+.nav-links div {
   text-decoration: none;
   color: black;
   font-weight: bold;
@@ -89,10 +151,11 @@ nav {
 .nav-subscribe {
   width: 300px;
   gap: 5px;
+  color: var(--blue);
 }
 .nav-subscribe a {
   text-decoration: none;
-  color: var(--blue);
+
   margin-right: 15px;
   font-weight: bold;
 }
@@ -126,6 +189,8 @@ nav {
   padding: 20px;
 }
 /* first banner on the page */
+.banner {
+}
 .banner,
 .banner2 {
   position: relative;
@@ -260,7 +325,7 @@ footer a:hover {
   font-size: larger;
   gap: 20px;
   text-align: start;
-  width: 350px;
+  min-width: 280px;
   border-radius: 10px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
@@ -306,7 +371,7 @@ footer a:hover {
 .package-div-1,
 .package-div-2,
 .package-div-3 {
-  min-width: 540px;
+  width: 100%;
 }
 .package-div-1 {
   grid-column-start: 1;
@@ -328,26 +393,15 @@ footer a:hover {
   grid-row-end: 3;
   height: 280px;
 }
-/* .package-div-1 img,
+.package-div-1 img,
 .package-div-2 img,
 .package-div-3 img {
   height: 100%;
-  width: 100%;
+  width: 540px;
   object-fit: cover;
   filter: blur(0.2px);
-} */
-.package-div-3 img {
-  width: 600px;
-  /* height: 100%; */
 }
-.package-div-1 img {
-  width: 600px;
-  /* height: 100%; */
-}
-.package-div-2 img {
-  width: 600px;
-  /* height: 100%; */
-}
+
 .package-img-container {
   position: relative;
   width: 100%;
@@ -464,16 +518,14 @@ footer a:hover {
 }
 .offer-content-div,
 .products-content-div {
-  padding: 5% 10%;
+  padding: 5% 5%;
 }
 .offer-content-div p,
 .products-content-div p {
-  font-size: smaller;
   color: var(--light-text-color);
   margin-bottom: 5%;
 }
 .products-content-div h2 {
-  font-size: small;
   margin-bottom: 5%;
 }
 
@@ -523,4 +575,103 @@ footer a:hover {
   cursor: pointer;
   color: var(--blue);
 }
-/* awardebi */
+/* animation for the drop-down menu */
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+.slide-in {
+  transform: translateY(-15px);
+  opacity: 0;
+  animation: slideIn 0.5s forwards;
+}
+/* Keyframes for animations */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/* drop down menu hovers */
+.drop-down-products:hover,
+.drop-down-offers:hover,
+.drop-down-concept:hover {
+  cursor: pointer;
+}
+.drop-down-logo div:hover,
+.nav-subscribe:hover {
+  color: var(--light-blue);
+  cursor: pointer;
+}
+.blue-btn:hover {
+  background-color: var(--light-blue);
+  background-image: none;
+  cursor: pointer;
+}
+@media only screen and (max-width: 767px) {
+  .footer-content {
+    flex-direction: column;
+  }
+  .footer-concept,
+  .footer-products,
+  .footer-lifestyles,
+  .footer-contact {
+    margin: 0 -8%;
+    padding: 8%;
+    border-top: 1px solid var(--light-grey);
+  }
+  .package-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-template-rows: 1fr; /* 1 row */
+    width: 100%;
+    gap: 2%; /* unified gap for both rows and columns */
+    overflow-x: auto;
+  }
+
+  .package-div-1,
+  .package-div-2,
+  .package-div-3 {
+    width: 100%;
+  }
+
+  .package-div-1 {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    height: 200px; /* Adjust height if necessary */
+  }
+
+  .package-div-2 {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    height: 200px; /* Adjust height if necessary */
+  }
+
+  .package-div-3 {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    height: 200px;
+  }
+}
+@media only screen and (max-width: 990px) {
+  .statistics-container {
+    flex-direction: column;
+    width: 100%;
+  }
+  .stat {
+    width: 100%;
+  }
+  .main-concept-h1,
+  .nav-links,
+  .eng {
+    display: none;
+  }
+  .nav-first-section svg {
+    border-right: none;
+  }
+}
