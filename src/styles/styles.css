@@ -496,6 +496,7 @@ footer a:hover {
 .products-container {
   grid-template-columns: repeat(3, 1fr);
   margin-bottom: 10%;
+  overflow-x: auto;
 }
 
 .offers-container::-webkit-scrollbar,
@@ -706,7 +707,7 @@ footer a:hover {
   .package-div-1,
   .package-div-2,
   .package-div-3 {
-    width: 100%;
+    width: 200px;
   }
 
   .package-div-1 {
@@ -783,8 +784,8 @@ footer a:hover {
   }
   .banner,
   .banner2 {
-    margin-left: -5%;
-    margin-right: -5%;
+    margin-left: -6%;
+    margin-right: -6%;
 
     width: 100vw;
   }
