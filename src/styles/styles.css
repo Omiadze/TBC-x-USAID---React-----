@@ -16,7 +16,14 @@
 body {
   background-color: var(--too-light-grey);
 }
-
+.burger-menu-btn {
+  display: none;
+}
+.burger-menu-drop-down {
+  padding: 18% 5%;
+  height: 100%;
+  background-color: white;
+}
 /* General styles for header, main container, and footer */
 header,
 .main-container,
@@ -40,6 +47,7 @@ footer {
 hr {
   margin: 0 -40%; /* Negative margin to counteract the padding */
   /* width: calc(100% + 40%); Add padding width to the hr */
+  color: var(--light-grey);
 }
 /* drop-down */
 .drop-down-menu {
@@ -55,6 +63,9 @@ hr {
   align-items: center;
   gap: 2%;
   margin-top: 5%;
+}
+.drop-down-logo img {
+  width: 170px;
 }
 
 .products-ul,
@@ -149,9 +160,10 @@ nav {
 }
 
 .nav-subscribe {
-  width: 300px;
+  width: 320px;
   gap: 5px;
   color: var(--blue);
+  text-align: center;
 }
 .nav-subscribe a {
   text-decoration: none;
@@ -250,13 +262,16 @@ footer {
   background-color: white;
   margin-top: 5em;
 }
-footer a {
+footer a,
+.drop-down-top a,
+.drop-down-bottom a {
   text-decoration: none;
   color: var(--light-text-color);
 }
 .header-of-footer,
 .footer-content,
-.end-section {
+.end-section,
+.drop-down-top {
   display: flex;
   justify-content: space-between;
 }
@@ -267,7 +282,11 @@ footer a {
 .footer-lifestyles,
 .footer-concept,
 .contact,
-.follow-us {
+.follow-us,
+.mobile-products-div,
+.mobile-offers-div,
+.mobile-concept-div,
+.mobile-contact-div {
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -342,6 +361,7 @@ footer a:hover {
   width: 100%;
   margin-bottom: 10%;
 }
+
 .digital-bank-content {
   flex: 1;
 }
@@ -358,6 +378,14 @@ footer a:hover {
 .digital-bank-btn {
   padding: 10px 30px;
   margin-right: 20px;
+  background-color: white;
+  border: 1px solid var(--light-grey);
+  margin-bottom: 2%;
+}
+.digital-bank-btn:hover {
+  background-color: var(--light-grey);
+  border: 1px solid var(--light-text-color);
+  cursor: pointer;
 }
 /* packages */
 .package-container {
@@ -406,6 +434,8 @@ footer a:hover {
   position: relative;
   width: 100%;
   height: 100%;
+  overflow: hidden;
+  border-radius: 10px;
 }
 .package-img-container img {
   height: 100%;
@@ -413,6 +443,13 @@ footer a:hover {
   object-fit: cover;
   filter: blur(0.2px);
   border-radius: 10px;
+
+  transition: transform 0.3s ease;
+}
+.package-img-container img:hover {
+  transform: scale(1.02);
+  border-radius: 10px;
+  cursor: pointer;
 }
 .overlay {
   position: absolute;
@@ -447,7 +484,7 @@ footer a:hover {
   overflow-x: auto;
   scrollbar-width: none;
   margin-bottom: 20px;
-  padding-right: 1%;
+  padding: 1%;
 }
 .offers-container {
   grid-template-columns: repeat(6, 1fr);
@@ -472,13 +509,27 @@ footer a:hover {
   border: 0.1px solid var(--border-light-grey);
   border-radius: 10px;
   width: 350px;
+  overflow: hidden;
+  transition: box-shadow 0.4s ease-in-out;
 }
+
+.offer-div:hover,
+.products-div:hover {
+  box-shadow: 0 4px 8px rgba(177, 175, 175, 0.3);
+  cursor: pointer;
+}
+
 .awards-div {
   width: 350px;
   height: 250px;
   padding: 10%;
   background-color: white;
   border-radius: 10px;
+  transition: box-shadow 0.4s ease-in-out;
+}
+.awards-div:hover {
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(177, 175, 175, 0.3);
 }
 
 .awards-content-div {
@@ -489,6 +540,7 @@ footer a:hover {
 }
 .awards-logo {
   width: 35%;
+  height: 60px;
 }
 .offer-img-container,
 .products-img-container {
@@ -504,8 +556,23 @@ footer a:hover {
   object-fit: cover;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+.offer-img:hover,
+.products-img:hover {
+  transform: scale(1.02);
 }
 
+.all-offers {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5% 5% 0;
+}
+.all-offers a {
+  color: var(--blue);
+  font-size: small;
+  font-weight: bold;
+}
 .offers-logo {
   position: absolute;
   right: 0px;
@@ -605,7 +672,8 @@ footer a:hover {
   cursor: pointer;
 }
 .drop-down-logo div:hover,
-.nav-subscribe:hover {
+.nav-subscribe:hover,
+.all-offers a:hover {
   color: var(--light-blue);
   cursor: pointer;
 }
@@ -618,11 +686,12 @@ footer a:hover {
   .footer-content {
     flex-direction: column;
   }
+
   .footer-concept,
   .footer-products,
   .footer-lifestyles,
   .footer-contact {
-    margin: 0 -8%;
+    margin: 0 -5%;
     padding: 8%;
     border-top: 1px solid var(--light-grey);
   }
@@ -659,6 +728,9 @@ footer a:hover {
   }
 }
 @media only screen and (max-width: 990px) {
+  h1 {
+    font-size: 1.3em;
+  }
   .statistics-container {
     flex-direction: column;
     width: 100%;
@@ -673,5 +745,63 @@ footer a:hover {
   }
   .nav-first-section svg {
     border-right: none;
+  }
+  .nav-second-section {
+    gap: 3%;
+    font-size: smaller;
+  }
+  .nav-subscribe {
+    width: 220px;
+  }
+  .nav-subscribe a {
+    margin-right: 0;
+  }
+  .burger-menu-btn {
+    display: block;
+    width: 25px;
+  }
+  .drop-down-top {
+    flex-direction: column;
+  }
+
+  .drop-down-main-div div {
+    height: fit-content;
+  }
+  .drop-down-top div {
+    margin-bottom: 10%;
+    border-bottom: 1px solid var(--light-grey);
+    margin-left: -5%;
+    margin-right: -5%;
+    padding-left: 5%;
+    padding-bottom: 2%;
+  }
+  .digital-bank-section {
+    flex-direction: column-reverse;
+    justify-content: start;
+    align-items: start;
+    gap: 20px;
+  }
+  .banner,
+  .banner2 {
+    margin-left: -5%;
+    margin-right: -5%;
+
+    width: 100vw;
+  }
+  .banner-img-wrapper {
+    height: 400px;
+  }
+  .banner img,
+  .banner2 img {
+    object-fit: cover;
+  }
+  .banner-content,
+  .banner2-content {
+    height: 400px;
+    justify-content: end;
+    padding-bottom: 10%;
+  }
+  .statistics-container {
+    gap: 0px;
   }
 }

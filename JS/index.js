@@ -3,6 +3,7 @@ import products from "./products.js";
 import createBlueBtn from "./button.js";
 import offers from "./offers.js";
 import awards from "./awards.js";
+import createmobileDropDowns from "./mobile-drop-downs.js";
 
 // blue button for the banner1 and banner2
 const bannerContent = document.getElementById("banner-content");
@@ -306,3 +307,34 @@ const hideDropdown = (event) => {
 };
 
 document.addEventListener("click", hideDropdown);
+
+// what happens after I click on the burger menu btn?
+let dropdownCreated = false;
+const burgerMenuBtn = document.getElementById("burger-menu-btn");
+const burgerMenuDropDownContainer = document.getElementById(
+  "burger-menu-drop-down"
+);
+const hidePage = document.getElementById("hide");
+console.log(burgerMenuDropDownContainer);
+const burgerMenuBtnIsClicked = () => {
+  if (burgerMenuDropDownContainer.style.display == "none") {
+    burgerMenuDropDownContainer.style.display = "block";
+    if (!dropdownCreated) {
+      const burgerMenuDropDownDiv = createmobileDropDowns();
+      burgerMenuDropDownContainer.appendChild(burgerMenuDropDownDiv);
+      dropdownCreated = true;
+    }
+
+    hidePage.style.display = "none";
+    console.log(hidePage);
+    burgerMenuBtn.src = "./src/Img/x.png";
+    burgerMenuBtn.classList.add("fade-in");
+  } else {
+    burgerMenuDropDownContainer.style.display = "none";
+    hidePage.style.display = "block";
+    burgerMenuBtn.src = "./src/Img/burger-menu.png";
+    burgerMenuBtn.classList.remove("fade-in");
+  }
+};
+burgerMenuBtn.addEventListener("click", burgerMenuBtnIsClicked);
+// in the drop-down section for mobile, there is items that must be click to show more info and this is the function for it
