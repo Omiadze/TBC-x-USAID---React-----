@@ -787,7 +787,7 @@ footer a:hover {
   .banner2 {
     margin-left: -5.7%;
     margin-right: -5.5%;
-
+    border-radius: 0px;
     width: 100vw;
   }
   .banner-img-wrapper {
