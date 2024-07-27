@@ -47,7 +47,7 @@ footer {
 hr {
   margin: 0 -40%; /* Negative margin to counteract the padding */
   /* width: calc(100% + 40%); Add padding width to the hr */
-  color: var(--light-grey);
+  color: var(--too-light-grey);
 }
 /* drop-down */
 .drop-down-menu {
@@ -785,7 +785,7 @@ footer a:hover {
   }
   .banner,
   .banner2 {
-    margin-left: -6%;
+    margin-left: -5.5%;
     margin-right: -6%;
 
     width: 100vw;
