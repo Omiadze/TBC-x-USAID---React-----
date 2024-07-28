@@ -94,6 +94,13 @@ nav {
   color: var(--blue);
   text-align: center;
 }
+/*  */
+.btn-subscribe {
+  display: flex;
+  gap: 5px;
+  font-size: small;
+  font-weight: bold;
+}
 .nav-subscribe a {
   text-decoration: none;
 
