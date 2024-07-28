@@ -15,28 +15,24 @@ blueBtn2.textContent = "LEARN MORE";
 bannerContent.appendChild(blueBtn);
 bannerContent2.appendChild(blueBtn2);
 
-// function that it responsible for the package section container
+// function that creates packages for the package container
 const packageContainer = document.getElementById("package-container");
-
 products.map((item) => {
   const div = document.createElement("div");
-
   const imgContainer = document.createElement("div");
   imgContainer.className = "package-img-container";
-
   const img = document.createElement("img");
   img.src = item.img;
   img.alt = item.title;
   // this is for the grid styling
   imgContainer.appendChild(img);
-  if (item.index === 3) {
+  if (item.id === 3) {
     div.className = "package-div-3";
-  } else if (item.index === 2) {
+  } else if (item.id === 2) {
     div.className = "package-div-2";
   } else {
     div.className = "package-div-1";
   }
-  console.log(div.className);
   // content that is displayed on top of the img
   const overlay = document.createElement("div");
   const title = document.createElement("h2");
@@ -54,19 +50,15 @@ products.map((item) => {
   packageContainer.appendChild(div);
 });
 
-// Function to create and display statistics divs
+// Function that creates and displays statistics divs
 const statContainer = document.getElementById("statistics-container");
-
 statistics.map((stat) => {
   const div = document.createElement("div");
   div.className = "stat";
-
   const amount = document.createElement("h1");
   amount.textContent = stat.amount;
-
   const title = document.createElement("p");
   title.textContent = stat.title;
-
   div.appendChild(amount);
   div.appendChild(title);
   statContainer.appendChild(div);
@@ -77,7 +69,6 @@ offers.map((offer) => {
   const offersContainer = document.getElementById("offers-container");
   const div = document.createElement("div");
   div.className = "offer-div";
-
   const imgContainer = document.createElement("div");
   imgContainer.className = "offer-img-container";
   const img = document.createElement("img");
@@ -85,7 +76,6 @@ offers.map((offer) => {
   img.src = offer.img;
   img.alt = offer.title;
   imgContainer.appendChild(img);
-
   // add logo to the offers div
   const logoDiv = document.createElement("div");
   logoDiv.className = "offers-logo-div";
@@ -115,7 +105,6 @@ products.map((item) => {
   const products = document.getElementById("products");
   const div = document.createElement("div");
   div.className = "products-div";
-
   const imgContainer = document.createElement("div");
   imgContainer.className = "products-img-container";
   const img = document.createElement("img");
@@ -213,13 +202,6 @@ const initSlider = (containerSelector, scrollbarSelector, arrowsSelector) => {
     });
   });
 
-  const handleSlideBtn = () => {
-    sliderBtns[0].style.display =
-      sliderContainer.scrollLeft <= 0 ? "hidden" : "block";
-    sliderBtns[1].style.display =
-      sliderContainer.scrollLeft >= maxScrollLeft ? "hidden" : "block";
-  };
-
   const updateScrollThumbPosition = () => {
     const scrollPosition = sliderContainer.scrollLeft;
     const thumbPosition =
@@ -229,7 +211,6 @@ const initSlider = (containerSelector, scrollbarSelector, arrowsSelector) => {
   };
 
   sliderContainer.addEventListener("scroll", () => {
-    handleSlideBtn();
     updateScrollThumbPosition();
   });
 
@@ -238,14 +219,13 @@ const initSlider = (containerSelector, scrollbarSelector, arrowsSelector) => {
     updateScrollThumbPosition();
   });
 };
-
 // argumennts for the initSlider function
 window.addEventListener("load", () => {
   initSlider("#offers-container", "#offers-scrollbar", "#offers-arrows");
   initSlider("#awards-container", "#awards-scrollbar", "#awards-arrows");
 });
 
-// create drop-down menu
+// create drop-down menu for products, offers and concept space
 const dropDownMenu = document.getElementById("drop-down-menu");
 const dropDownProducts = document.getElementById("drop-down-products");
 const dropDownOffers = document.getElementById("drop-down-offers");
@@ -337,4 +317,3 @@ const burgerMenuBtnIsClicked = () => {
   }
 };
 burgerMenuBtn.addEventListener("click", burgerMenuBtnIsClicked);
-// in the drop-down section for mobile, there is items that must be click to show more info and this is the function for it

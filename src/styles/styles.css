@@ -12,7 +12,6 @@
   --light-grey: #d7dddd;
   --border-light-grey: #e7e7e7;
 }
-
 body {
   background-color: var(--too-light-grey);
 }
@@ -24,7 +23,7 @@ body {
   height: 100%;
   background-color: white;
 }
-/* General styles for header, main container, and footer */
+/* General styles for header, main container and footer */
 header,
 .main-container,
 .main-container-second-part,
@@ -33,23 +32,87 @@ footer {
   padding-left: 5%;
   padding-right: 5%;
 }
-@media only screen and (min-width: 1200px) {
-  header,
-  .main-container,
-  .main-container-second-part,
-  .main-container-third-part,
-  footer {
-    padding-left: 20%;
-    padding-right: 20%;
-  }
+/* Styles for the header and navbar sections */
+header {
+  background-color: white;
+  border-bottom: 1px solid var(--light-grey);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 20px 0; */
+  height: 60px;
+}
+.main-logo {
+  display: flex;
+  align-items: center;
+  font-size: large;
+  color: var(--light-text-color);
+}
+.nav-first-section svg {
+  border-right: 2px solid var(--light-grey);
+  padding-right: 5%;
+  margin-right: 5%;
+}
+.nav-first-section,
+.nav-second-section,
+.nav-subscribe,
+.eng {
+  display: flex;
+}
+.nav-first-section,
+.nav-second-section {
+  align-items: center;
+  gap: 6%;
+  height: 100%;
+  color: var(--light-text-color);
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 380px;
+  height: 100%;
+}
+.nav-links div {
+  display: flex;
+  align-items: center;
+  margin: auto 15px;
+  height: 100%;
+  text-decoration: none;
+}
+.nav-subscribe {
+  width: 320px;
+  gap: 5px;
+  color: var(--blue);
+  text-align: center;
+}
+.nav-subscribe a {
+  text-decoration: none;
+
+  margin-right: 15px;
+  font-weight: bold;
+}
+.eng {
+  color: black;
 }
 
-hr {
-  margin: 0 -40%; /* Negative margin to counteract the padding */
-  /* width: calc(100% + 40%); Add padding width to the hr */
-  color: var(--too-light-grey);
+.navbar-logo {
+  display: flex;
+  align-items: center;
 }
-/* drop-down */
+.navbar-logo img {
+  height: 30px;
+  margin-right: 10px;
+}
+/* drop-down-menu for desktop */
 .drop-down-menu {
   background-color: white;
   display: flex;
@@ -67,7 +130,6 @@ hr {
 .drop-down-logo img {
   width: 170px;
 }
-
 .products-ul,
 .offers-ul,
 .concept-ul {
@@ -75,8 +137,10 @@ hr {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  color: var(--light-text-color);
+  color: #000;
   width: 120px;
+  font-weight: bold;
+  font-size: small;
 }
 .products-ul li:hover,
 .offers-ul li:hover,
@@ -85,123 +149,38 @@ hr {
   cursor: pointer;
 }
 .offers-ul {
-  margin-left: 90%;
+  margin-left: 95%;
 }
 .products-ul {
-  margin-left: 8%;
+  margin-left: 18%;
 }
 .concept-ul {
   margin-left: 160%;
 }
-
-/* Styles for the header and navbar sections */
-header {
-  background-color: white;
-
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
+/* drop-down-menu hover */
+.drop-down-products:hover,
+.drop-down-offers:hover,
+.drop-down-concept:hover {
+  cursor: pointer;
 }
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* padding: 20px 0; */
-  height: 60px;
+.drop-down-logo div:hover,
+.nav-subscribe:hover,
+.all-offers a:hover {
+  color: var(--light-blue);
+  cursor: pointer;
 }
-.main-logo {
-  display: flex;
-  align-items: center;
-  color: var(--light-text-color);
+.blue-btn:hover {
+  background-color: var(--light-blue);
+  background-image: none;
+  cursor: pointer;
 }
-.nav-first-section svg {
-  border-right: 2px solid var(--light-grey);
-  padding-right: 5%;
-  margin-right: 5%;
-}
-
-.nav-first-section,
-.nav-second-section,
-.nav-subscribe,
-.eng {
-  display: flex;
-}
-
-.nav-first-section,
-.nav-second-section {
-  align-items: center;
-  gap: 6%;
-  height: 100%;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  width: 380px;
-  height: 100%;
-}
-
-.nav-links div {
-  display: flex;
-  align-items: center;
-  margin: auto 15px;
-  height: 100%;
-}
-
-.nav-links div {
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-}
-
-.nav-subscribe {
-  width: 320px;
-  gap: 5px;
-  color: var(--blue);
-  text-align: center;
-}
-.nav-subscribe a {
-  text-decoration: none;
-
-  margin-right: 15px;
-  font-weight: bold;
-}
-
-.eng {
-  color: black;
-}
-
-.navbar-logo {
-  display: flex;
-  align-items: center;
-}
-
-.navbar-logo img {
-  height: 30px;
-  margin-right: 10px;
-}
-
-/* home page */
+/* h1 home page */
 .home-page {
   padding-bottom: 4%;
 }
-
 /* Main container styles */
 .main-container {
-  padding-top: 100px; /* Adjust based on the height of your navbar */
-}
-
-/* Additional styles for content (optional) */
-.content p {
-  padding: 20px;
-}
-/* first banner on the page */
-.banner {
+  padding-top: 100px;
 }
 .banner,
 .banner2 {
@@ -221,10 +200,8 @@ nav {
   justify-content: center;
   width: 100%;
   height: 98.5%;
-
   background: rgba(0, 0, 0, 0.5);
   color: white;
-
   gap: 20px;
   padding-left: 11%;
 }
@@ -236,7 +213,7 @@ nav {
   height: 102%;
   background-color: #000;
 }
-
+/* blue btn for banners */
 .blue-btn {
   background-image: linear-gradient(15deg, #001682, #3240e5);
   color: white;
@@ -245,14 +222,21 @@ nav {
   width: fit-content;
   border-radius: 5px;
 }
-
 /* main title on the page */
 .main-title {
   font-size: x-large;
   padding: 4em 0;
 }
-
 /* footer section here */
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  gap: 4%;
+}
+.footer-logo svg {
+  padding-right: 2%;
+  border-right: 1px solid black;
+}
 .icon {
   width: 20px;
 }
@@ -323,7 +307,6 @@ footer a,
   gap: 15px;
   padding: 30px 0px;
 }
-
 footer a:hover {
   color: var(--blue);
 }
@@ -373,8 +356,6 @@ footer a:hover {
   width: 300px;
 }
 /* digital bank btns */
-.digital-bank-btns {
-}
 .digital-bank-btn {
   padding: 10px 30px;
   margin-right: 20px;
@@ -429,7 +410,6 @@ footer a:hover {
   object-fit: cover;
   filter: blur(0.2px);
 }
-
 .package-img-container {
   position: relative;
   width: 100%;
@@ -443,7 +423,6 @@ footer a:hover {
   object-fit: cover;
   filter: blur(0.2px);
   border-radius: 10px;
-
   transition: transform 0.3s ease;
 }
 .package-img-container img:hover {
@@ -456,7 +435,6 @@ footer a:hover {
   bottom: 0;
   margin-bottom: 10%;
   margin-left: 10%;
-  /* left: 20%; */
   color: white;
   width: 200px;
   font-weight: bold;
@@ -466,6 +444,10 @@ footer a:hover {
   gap: 2%;
   margin-top: 10%;
 }
+.read-more:hover {
+  color: var(--light-text-color);
+  cursor: pointer;
+}
 .read-more p {
   text-decoration: underline;
   font-size: smaller;
@@ -474,12 +456,11 @@ footer a:hover {
   margin-bottom: 5%;
 }
 
-/* offerebi */
+/* styles for offers awards and products section */
 .offers-container,
 .awards-container,
 .products-container {
   display: grid;
-
   gap: 3%;
   overflow-x: auto;
   scrollbar-width: none;
@@ -498,12 +479,9 @@ footer a:hover {
   margin-bottom: 10%;
   overflow-x: auto;
 }
-
 .offers-container::-webkit-scrollbar,
 .awards-container::-webkit-scrollbar {
   display: none;
-}
-.offer-slider-wrapper {
 }
 .offer-div,
 .products-div {
@@ -513,13 +491,11 @@ footer a:hover {
   overflow: hidden;
   transition: box-shadow 0.4s ease-in-out;
 }
-
 .offer-div:hover,
 .products-div:hover {
   box-shadow: 0 4px 8px rgba(177, 175, 175, 0.3);
   cursor: pointer;
 }
-
 .awards-div {
   width: 350px;
   height: 250px;
@@ -532,7 +508,6 @@ footer a:hover {
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(177, 175, 175, 0.3);
 }
-
 .awards-content-div {
   padding-top: 15%;
 }
@@ -549,7 +524,6 @@ footer a:hover {
   width: 350px;
   height: 200px;
 }
-
 .offer-img,
 .products-img {
   width: 100%;
@@ -596,13 +570,10 @@ footer a:hover {
 .products-content-div h2 {
   margin-bottom: 5%;
 }
-
 /* scrollbar slider */
 .slider-scrollbar {
   height: 20px;
   width: 98%;
-  /* background-color: white;
-  border: 1px solid black; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -645,7 +616,6 @@ footer a:hover {
   color: var(--blue);
 }
 /* animation for the drop-down menu */
-
 .fade-in {
   opacity: 0;
   animation: fadeIn 2s forwards;
@@ -667,28 +637,11 @@ footer a:hover {
     opacity: 1;
   }
 }
-/* drop down menu hovers */
-.drop-down-products:hover,
-.drop-down-offers:hover,
-.drop-down-concept:hover {
-  cursor: pointer;
-}
-.drop-down-logo div:hover,
-.nav-subscribe:hover,
-.all-offers a:hover {
-  color: var(--light-blue);
-  cursor: pointer;
-}
-.blue-btn:hover {
-  background-color: var(--light-blue);
-  background-image: none;
-  cursor: pointer;
-}
+/* styles for other devices users */
 @media only screen and (max-width: 767px) {
   .footer-content {
     flex-direction: column;
   }
-
   .footer-concept,
   .footer-products,
   .footer-lifestyles,
@@ -698,31 +651,27 @@ footer a:hover {
     border-top: 1px solid var(--light-grey);
   }
   .package-container {
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
-    grid-template-rows: 1fr; /* 1 row */
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
     width: 100%;
-    gap: 2%; /* unified gap for both rows and columns */
+    gap: 2%;
     overflow-x: auto;
   }
-
   .package-div-1,
   .package-div-2,
   .package-div-3 {
     width: 200px;
   }
-
   .package-div-1 {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
-    height: 200px; /* Adjust height if necessary */
+    height: 200px;
   }
-
   .package-div-2 {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
-    height: 200px; /* Adjust height if necessary */
+    height: 200px;
   }
-
   .package-div-3 {
     grid-column: 3 / 4;
     grid-row: 1 / 2;
@@ -765,7 +714,6 @@ footer a:hover {
   .drop-down-top {
     flex-direction: column;
   }
-
   .drop-down-main-div div {
     height: fit-content;
   }
@@ -805,5 +753,15 @@ footer a:hover {
   }
   .statistics-container {
     gap: 0px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  header,
+  .main-container,
+  .main-container-second-part,
+  .main-container-third-part,
+  footer {
+    padding-left: 20%;
+    padding-right: 20%;
   }
 }
